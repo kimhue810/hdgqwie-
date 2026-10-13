@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <h1>Mini Task Manager</h1>
+            <p>Bài kiểm tra thực hành HTML, CSS, JavaScript</p>
+        </div>
+    </header>
+    
+    <main class="container">
+        <!-- Khu vực Form thêm công việc -->
+        <form id="task-form">
+            <input type="text" id="task-name" placeholder="Nhập tên công việc..." required>
+            <input type="date" id="task-date">
+            <select id="task-priority">
+                <option value="Cao">Cao</option>
+                <option value="Trung bình">Trung bình</option>
+                <option value="Thấp">Thấp</option>
+            </select>
+            <button type="submit">Thêm</button>
+        </form>
+
+        <!-- Khu vực Tìm kiếm và Lọc -->
+        <div class="controls">
+            <input type="text" id="search-input" placeholder="Tìm kiếm công việc...">
+            <select id="filter-status">
+                <option value="all">Tất cả</option>
+                <option value="pending">Chưa hoàn thành</option>
+                <option value="done">Đã hoàn thành</option>
+            </select>
+        </div>
+        
+        <!-- Vùng hiển thị danh sách -->
+        <div id="task-list"></div>
+    </main>
+
+    <footer class="site-footer">
+        <!-- Ghi rõ họ tên và mã sinh viên -->
+        Sinh viên: NGUYỄN KIM HUỆ | MSSV: 224001720
+    </footer>
+</body>
+</html>

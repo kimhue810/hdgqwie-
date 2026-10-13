@@ -1,0 +1,101 @@
+/* Phần B: Hoàn thiện CSS theo đề, KHÔNG dùng thư viện ngoài. */
+* { box-sizing: border-box; }
+:root { font-family: Arial, Helvetica, sans-serif; color: #1f2937; }
+body { margin: 0; background: #f7faf9; }
+.container { width: min(1060px, 94%); margin: 0 auto; }
+.site-header { padding: 24px 0; background: #176650; color: white; }
+.site-header h1 { margin: 0 0 6px; }
+.site-header p { margin: 0; }
+.site-footer { margin-top: 28px; padding: 20px; text-align: center; }
+/* TODO: bố cục form, công cụ tìm kiếm, danh sách, trạng thái, responsive */
+
+/* 1. BỐ CỤC FORM VÀ CÔNG CỤ TÌM KIẾM */
+#task-form, .controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* Định dạng các ô nhập liệu */
+input, select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 15px;
+}
+
+/* Cho ô nhập văn bản tự động giãn rộng ra chiếm chỗ trống */
+#task-name, #search-input {
+  flex-grow: 1;
+}
+
+/* Định dạng nút bấm */
+button {
+  padding: 10px 20px;
+  background-color: #176650;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* 2. HIỆU ỨNG HOVER VÀ FOCUS */
+button:hover {
+  background-color: #114c3b;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: #176650;
+  box-shadow: 0 0 5px rgba(23, 102, 80, 0.3);
+}
+
+/* 3. ĐỊNH DẠNG DANH SÁCH & TRẠNG THÁI CÔNG VIỆC */
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border-left: 5px solid #176650;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Định dạng riêng cho công việc Đã hoàn thành (done) */
+.task-item.done {
+  border-left-color: #888;
+  background-color: #f0f0f0;
+}
+
+.task-item.done .task-title {
+  /* Bỏ line-through ở đây để không còn bị gạch ngang chữ */
+  color: #555; /* Đổi sang màu xám nhẹ thay vì gạch chữ để vẫn nhận biết được việc đã xong */
+}
+
+.task-actions button {
+  padding: 6px 12px;
+  margin-left: 5px;
+  font-size: 13px;
+}
+
+/* 4. RESPONSIVE CHO ĐIỆN THOẠI (~375px) */
+@media (max-width: 375px) {
+  #task-form, .controls {
+    flex-direction: column;
+  }
+  
+  .task-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .task-actions {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+}
